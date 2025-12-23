@@ -1,0 +1,35 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+.vs/
+.vscode/
+
+# Visual Studio user files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio workspace state
+VSWorkspaceState.json
+DocumentLayout.json
+DocumentLayout.backup.json
+
+# IIS / local server
+applicationhost.config
+
+# Index / cache
+FileContentIndex/
+*.vsidx
+
+# SQLite local state
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
