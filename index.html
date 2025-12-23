@@ -4,74 +4,112 @@
     <meta charset="UTF-8" />
     <title>Support Andrew</title>
 
-    <!-- IMPORTANT: responsive -->
+    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO / clarity -->
+    <!-- SEO -->
     <meta name="description" content="Support Andrew with a small donation. Secure payment via Stripe." />
 
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<main class="container">
-    <div class="card">
-        <h1>Support Andrew</h1>
-        <p class="subtitle">
-            If my content helped you — this is a simple way to say thanks.
-        </p>
+    <main class="container">
+        <div class="card">
 
-        <!-- Amount -->
-        <label>
-            Amount
+            <!-- HEADER -->
+            <div class="header">
+                <div class="header-text">
+                    <h1>Support Andrew</h1>
+                    <p class="subtitle">
+                        If my videos helped you — leave a tip, it keeps the wheels turning.
+                    </p>
+                </div>
+
+                <img src="profile.jpg" alt="Andrew">
+            </div>
+
+            <!-- PRESET BUTTONS -->
+            <div class="preset-row">
+                <button class="preset" data-amount="3">
+                    £3<br><small>Thank you</small>
+                </button>
+
+                <button class="preset" data-amount="5">
+                    £5<br><small>Cheers</small>
+                </button>
+
+                <button class="preset" data-amount="10">
+                    £10<br><small>Made my day</small>
+                </button>
+            </div>
+
+            <div class="preset-row">
+                <button class="preset wide" data-amount="51">
+                    £50+<br><small>You are the best</small>
+                </button>
+            </div>
+
+            <!-- AMOUNT + CURRENCY -->
             <div class="amount-row">
-                <input id="amount" type="number" min="0.99" step="0.01" value="0.99" />
-                <select id="currency">
+                <input id="amount"
+                       type="number"
+                       min="1"
+                       step="1"
+                       value="3"
+                       aria-label="Amount" />
+
+                <select id="currency" aria-label="Currency">
                     <option value="GBP">GBP £</option>
                     <option value="EUR">EUR €</option>
+                    <option value="USD">USD $</option>
                 </select>
             </div>
-        </label>
 
-        <!-- From who -->
-        <label>
-            From who (optional)
-            <input id="fromName" type="text" maxlength="50" placeholder="So Andrew knows it's you" />
-        </label>
+            <!-- FROM -->
+            <input id="fromName"
+                   type="text"
+                   placeholder="From (optional)"
+                   maxlength="50" />
 
-        <!-- Message -->
-        <label>
-            Message (optional)
-            <textarea id="message" maxlength="250"
-                      placeholder="Type a short message for Andrew (max 250 characters)"></textarea>
-        </label>
+            <!-- MESSAGE -->
+            <textarea id="message"
+                      maxlength="250"
+                      placeholder="Write a short message (max 250 characters)">
+        </textarea>
 
-        <label style="font-size: 14px;">
-            <input type="checkbox" id="agree" required>
-            I agree to the
-            <a href="Policy/privacy.html" target="_blank">Privacy Policy</a>,
-            <a href="Policy/terms.html" target="_blank">Terms</a> and
-            <a href="Policy/refund.html" target="_blank">Refund Policy</a>.
-        </label>
+            <!-- AGREE -->
+            <div class="agree">
+                <input type="checkbox" id="agree" />
 
-        <button id="donateBtn" disabled>
-            Donate securely
-        </button>
+                <label for="agree">
+                    I agree to the
+                    <a href="policy/terms.html" target="_blank">Terms</a>,
+                    <a href="policy/privacy.html" target="_blank">Privacy</a> &
+                    <a href="policy/refund.html" target="_blank">Refund Policy</a>.
+                </label>
+            </div>
 
-        <p class="secure-note">
-            🔒 Secure payment via Stripe. Cards, Apple Pay & Google Pay supported.
-        </p>
-    </div>
+            <!-- PAY BUTTON -->
+            <button id="donateBtn" disabled>
+                Send Tip Securely
+            </button>
 
-    <footer>
-        <a href="Policy/privacy.html">Privacy Policy</a> |
-        <a href="Policy/terms.html">Terms</a> |
-        <a href="Policy/refund.html">Refund Policy</a>
-    </footer>
-</main>
+            <!-- PAYMENT ICONS -->
+            <div class="payments">
+                <img src="icons/applepay.svg" alt="Apple Pay">
+                <img src="icons/googlepay.svg" alt="Google Pay">
+                <img src="icons/visa.svg" alt="Visa">
+                <img src="icons/mastercard.svg" alt="Mastercard">
+            </div>
 
+            <!-- SECURITY NOTE -->
+            <p class="secure-note">
+                🔒 Secured payment powered by Stripe
+            </p>
 
-
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>

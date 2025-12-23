@@ -1,117 +1,240 @@
+﻿/* ===============================
+   DESIGN TOKENS
+================================ */
+
+:root {
+    --bg-page: #f3f6fb;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-placeholder: #94a3b8;
+   
+    --brand-blue: #1a73e8;
+    --brand-blue-soft: #e8f0fe;
+    --border-light: #e2e8f0;
+}
+
+/* ===============================
+   BASE
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+    background: var(--bg-page);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
+/* ===============================
+   CONTAINER / CARD
+================================ */
 
 .container {
     max-width: 420px;
     margin: 40px auto;
-    padding: 20px;
-    background: #020617;
-    border-radius: 12px;
+    padding: 0 16px;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 8px;
+.card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
 }
 
-.subtitle {
-    text-align: center;
-    font-size: 0.95rem;
-    color: #94a3b8;
+/* ===============================
+   HEADER
+================================ */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin-bottom: 15px;
-    font-size: 0.85rem;
+    .header h1 {
+        margin: 0 0 6px 0;
+        font-size: 1.75rem;
+    }
+
+.subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 260px;
 }
 
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: none;
-    background: #020617;
-    color: #e5e7eb;
+.header img {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    object-fit: cover;
 }
+
+/* ===============================
+   PRESET BUTTONS
+================================ */
+
+.preset-row {
+    display: flex;
+    gap: 10px;
+    margin: 14px 0;
+}
+
+.preset {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 10px 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+    box-shadow: 0 1px 0 rgba(15,23,42,0.03);
+}
+
+    .preset small {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 400;
+        color: var(--text-muted);
+    }
+
+    .preset:hover {
+        border-color: var(--brand-blue);
+        transform: translateY(-1px);
+    }
+
+    .preset.active {
+        border-color: var(--brand-blue);
+        background: var(--brand-blue-soft);
+    }
+
+    .preset.wide {
+        width: 100%;
+    }
+
+/* ===============================
+   AMOUNT / INPUTS
+================================ */
 
 .amount-row {
     display: flex;
     gap: 10px;
+    margin: 16px 0 10px;
 }
 
-    .amount-row input {
-        flex: 2;
-    }
-
-    .amount-row select {
-        flex: 1;
-    }
-
-button {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-    border-radius: 10px;
-    background: #22c55e;
-    color: #020617;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 80px;
+    line-height: 1.4;
+    resize: vertical;
+}
+
+::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* ===============================
+   AGREEMENT
+================================ */
+
+.agree {
+    margin: 16px 0 18px;
+    font-size: 0.75rem;
+    color: #475569;
+    display: flex;
+    align-items: center; /* ключевая строка */
+    gap: 10px;
+}
+
+    .agree input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+        flex-shrink: 0;
+        accent-color: var(--brand-blue);
+    }
+
+    .agree label {
+        line-height: 1.4;
+    }
+
+    .agree a {
+        color: var(--brand-blue);
+        text-decoration: none;
+    }
+
+/* ===============================
+   MAIN BUTTON
+================================ */
+
+#donateBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
     border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--brand-blue);
+    color: white;
     cursor: pointer;
 }
 
-    button:hover {
-        background: #16a34a;
+    #donateBtn:disabled {
+        background: #cbd5e1;
+        cursor: not-allowed;
     }
 
-footer {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.75rem;
+/* ===============================
+   PAYMENTS / FOOTNOTE
+================================ */
+
+.payments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 14px;
 }
 
-    footer a {
-        color: #94a3b8;
-        text-decoration: none;
+    .payments img {
+        height: 35px; /* было 18px */
+        opacity: 0.85;
     }
-.card {
-    background: #020617;
-    border-radius: 14px;
-    padding: 24px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
 
 .secure-note {
-    margin-top: 12px;
-    font-size: 0.75rem;
-    color: #94a3b8;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
     text-align: center;
 }
 
-footer {
-    margin-top: 16px;
-}
+/* ===============================
+   MOBILE
+================================ */
 
-.agree {
-    display: block;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    font-size: 0.75rem;
-    color: #94a3b8;
-}
-
-    .agree input {
-        margin-right: 6px;
+@media (max-width: 480px) {
+    .header {
+        align-items: flex-start;
     }
 
-button:disabled {
-    background: #334155;
-    cursor: not-allowed;
+    .subtitle {
+        max-width: none;
+    }
 }
