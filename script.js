@@ -1,4 +1,4 @@
-const presets = document.querySelectorAll('.preset');
+﻿const presets = document.querySelectorAll('.preset');
 const amountInput = document.getElementById('amount');
 const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
@@ -31,4 +31,50 @@ donateButton.addEventListener('click', () => {
     alert(
         `Donate ${amountInput.value} ${currencySelect.value}\n\nBackend (Stripe) is next step.`
     );
+});
+
+
+//const currencySelect = document.getElementById('currency');
+//const presets = document.querySelectorAll('.preset');
+
+
+const currencySymbols = {
+    GBP: '£',
+    EUR: '€',
+    USD: '$'
+};
+
+
+function updateCurrencySymbols() {
+    const currency = currencySelect.value;
+    const symbol = currencySymbols[currency];
+
+    presets.forEach(btn => {
+        const amount = btn.dataset.amount;
+
+        // wide button (£50+)
+        if (btn.classList.contains('wide')) {
+            btn.innerHTML = `${symbol}50+<br><small>You are the best</small>`;
+        } else {
+            const label = btn.querySelector('small').innerText;
+            btn.innerHTML = `${symbol}${amount}<br><small>${label}</small>`;
+        }
+    });
+}
+
+
+currencySelect.addEventListener('change', updateCurrencySymbols);
+
+// call one time  during load
+updateCurrencySymbols();
+
+const messageInput = document.getElementById('message');
+const charHint = document.getElementById('charHint');
+
+messageInput.addEventListener('input', () => {
+    if (messageInput.value.length >= 250) {
+        charHint.hidden = false;
+    } else {
+        charHint.hidden = true;
+    }
 });

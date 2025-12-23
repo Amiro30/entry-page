@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Support Andrew</title>
+    <title>Donate Andrew</title>
 
     <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,8 @@
                 <div class="header-text">
                     <h1>Support Andrew</h1>
                     <p class="subtitle">
-                        If my videos helped you — leave a tip, it keeps the wheels turning.
+                        Liked my content?
+                        <br>Support with a quick tip.</br>
                     </p>
                 </div>
 
@@ -70,13 +71,18 @@
             <input id="fromName"
                    type="text"
                    placeholder="From (optional)"
-                   maxlength="50" />
+                   maxlength="30" />
 
+            <p></p>
             <!-- MESSAGE -->
             <textarea id="message"
                       maxlength="250"
-                      placeholder="Write a short message (max 250 characters)">
-        </textarea>
+                      placeholder="Write a short message (optional)"></textarea>
+
+            <div id="charHint" class="char-hint" hidden>
+                Maximum 250 characters reached
+            </div>
+
 
             <!-- AGREE -->
             <div class="agree">
