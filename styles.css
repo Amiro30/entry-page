@@ -81,3 +81,20 @@ footer {
         color: #94a3b8;
         text-decoration: none;
     }
+.card {
+    background: #020617;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.secure-note {
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-align: center;
+}
+
+footer {
+    margin-top: 16px;
+}
