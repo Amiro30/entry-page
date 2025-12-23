@@ -43,10 +43,18 @@
         <label>
             Message (optional)
             <textarea id="message" maxlength="250"
-                          placeholder="Type a short message for Andrew (max 250 characters)"></textarea>
+                      placeholder="Type a short message for Andrew (max 250 characters)"></textarea>
         </label>
 
-        <button id="donateBtn">
+        <label style="font-size: 14px;">
+            <input type="checkbox" id="agree" required>
+            I agree to the
+            <a href="policy/privacy.html" target="_blank">Privacy Policy</a>,
+            <a href="policy/terms.html" target="_blank">Terms</a> and
+            <a href="policy/refund.html" target="_blank">Refund Policy</a>.
+        </label>
+
+        <button id="donateBtn" disabled>
             Donate securely
         </button>
 
@@ -62,6 +70,9 @@
     </footer>
 </main>
 
-<script src="script.js"></script>
+
+
+
+    <script src="script.js"></script>
 </body>
 </html>

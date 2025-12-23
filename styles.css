@@ -98,3 +98,20 @@ footer {
 footer {
     margin-top: 16px;
 }
+
+.agree {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+    .agree input {
+        margin-right: 6px;
+    }
+
+button:disabled {
+    background: #334155;
+    cursor: not-allowed;
+}
