@@ -3,6 +3,8 @@ const amountInput = document.getElementById('amount');
 const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('donateBtn');
+const API_BASE_URL = "https://YOUR-BACKEND-DOMAIN";
+
 
 // preset buttons logic
 presets.forEach(btn => {
@@ -27,16 +29,31 @@ checkbox.addEventListener('change', () => {
 });
 
 // placeholder for backend
-donateButton.addEventListener('click', () => {
-    alert(
-        `Donate ${amountInput.value} ${currencySelect.value}\n\nBackend (Stripe) is next step.`
-    );
+donateButton.addEventListener('click', async () => {
+    const payload = {
+        amount: Number(amountInput.value),
+        currency: currencySelect.value,
+        fromName: document.getElementById('fromName').value || null,
+        message: messageInput.value || null,
+        source: "Website"
+    };
+
+    const response = await fetch(`${API_BASE_URL}/api/checkout`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+        alert("Failed to create checkout");
+        return;
+    }
+
+    const data = await response.json();
+    window.location.href = data.checkoutUrl;
 });
-
-
-//const currencySelect = document.getElementById('currency');
-//const presets = document.querySelectorAll('.preset');
-
 
 const currencySymbols = {
     GBP: '£',
