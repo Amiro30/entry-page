@@ -3,7 +3,7 @@ const amountInput = document.getElementById('amount');
 const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('donateBtn');
-const API_BASE_URL = "https://YOUR-BACKEND-DOMAIN";
+const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
 
 
 // preset buttons logic
