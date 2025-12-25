@@ -35,7 +35,7 @@ donateButton.addEventListener('click', async () => {
         currency: currencySelect.value,
         fromName: document.getElementById('fromName').value || null,
         message: messageInput.value || null,
-        source: "Website"
+        source: 1
     };
 
     const response = await fetch(`${API_BASE_URL}/api/checkout`, {
