@@ -5,6 +5,8 @@ const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('donateBtn');
 const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
 
+//const params = new URLSearchParams(window.location.search);
+//const source = Number(params.get("src")) || 0;
 
 // preset buttons logic
 presets.forEach(btn => {
@@ -29,30 +31,40 @@ checkbox.addEventListener('change', () => {
 });
 
 // placeholder for backend
-donateButton.addEventListener('click', async () => {
+donateButton.addEventListener('click', async () => {   
+    const currentParams = new URLSearchParams(window.location.search);
+    const currentSource = Number(currentParams.get("src")) || 0;
+
     const payload = {
         amount: Number(amountInput.value),
         currency: currencySelect.value,
         fromName: document.getElementById('fromName').value || null,
         message: messageInput.value || null,
-        source: 1
+        source: currentSource 
     };
 
-    const response = await fetch(`${API_BASE_URL}/api/checkout`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    });
+    console.log("Payload to send:", payload);
 
-    if (!response.ok) {
-        alert("Failed to create checkout");
-        return;
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/checkout`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            alert("Failed to create checkout");
+            return;
+        }
+
+        const data = await response.json();
+        window.location.href = data.checkoutUrl;
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Connection error");
     }
-
-    const data = await response.json();
-    window.location.href = data.checkoutUrl;
 });
 
 const currencySymbols = {
