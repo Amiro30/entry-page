@@ -5,8 +5,6 @@ const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('tipBtn');
 const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
 
-//const params = new URLSearchParams(window.location.search);
-//const source = Number(params.get("src")) || 0;
 
 // preset buttons logic
 presets.forEach(btn => {
