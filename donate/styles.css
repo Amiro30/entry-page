@@ -185,7 +185,7 @@ textarea {
    MAIN BUTTON
 ================================ */
 
-#donateBtn {
+#tipBtn {
     width: 100%;
     padding: 12px;
     border-radius: 14px;
@@ -197,7 +197,7 @@ textarea {
     cursor: pointer;
 }
 
-    #donateBtn:disabled {
+    #tipBtn:disabled {
         background: #cbd5e1;
         cursor: not-allowed;
     }
