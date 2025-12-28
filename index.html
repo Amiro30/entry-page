@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Andrew AutoHub</title>
+    <title>Andrew Auto Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -30,10 +30,27 @@
 
         p {
             color: #64748b;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
-        a {
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0 24px 0;
+        }
+
+            ul li {
+                margin-bottom: 8px;
+            }
+
+            ul a {
+                color: #3d73bd;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+        .cta {
             display: inline-block;
             padding: 12px 20px;
             background: #3d73bd;
@@ -45,13 +62,31 @@
     </style>
 </head>
 <body>
-<div class="box">
-    <h1>Andrew Auto Hub</h1>
-    <p>
-        This page will evolve when the channel reaches<br>
-        <strong>10,000 subscribers</strong>.
-    </p>
-    <a href="/donate">Support the channel</a>
-</div>
+    <div class="box">
+        <h1>Andrew Auto Hub</h1>
+
+        <p>
+            I create automotive content about cars, ownership,
+            maintenance, and real-world driving experience.
+        </p>
+
+        <p>
+            My content is published on:
+        </p>
+
+        <ul>
+            <li><a href="https://www.youtube.com/@AndrewAutoHub" target="_blank">YouTube</a></li>
+            <li><a href="https://www.instagram.com/andrewautohub" target="_blank">Instagram</a></li>
+            <li><a href="https://tiktok.com/@andrewautohub" target="_blank">TikTok</a></li>
+        </ul>
+
+        <p>
+            If you enjoy my content, you can leave an optional tip
+            to support my work. Tips are optional and do not provide
+            access to additional content or services.
+        </p>
+
+        <a class="cta" href="/donate">Leave a tip</a>
+    </div>
 </body>
 </html>
