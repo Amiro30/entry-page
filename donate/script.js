@@ -2,7 +2,7 @@
 const amountInput = document.getElementById('amount');
 const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
-const donateButton = document.getElementById('donateBtn');
+const donateButton = document.getElementById('tipBtn');
 const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
 
 //const params = new URLSearchParams(window.location.search);
