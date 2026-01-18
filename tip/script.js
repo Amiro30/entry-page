@@ -125,7 +125,7 @@ messageInput.addEventListener('input', () => {
 
         localStorage.setItem(key, now);
 
-        const url = `${API_BASE_URL}/metrics/page-view?src=${src}`;
+        const url = `${API_BASE_URL}/api/metrics/page-view?src=${src}`;
 
         
         if (navigator.sendBeacon) {
