@@ -105,3 +105,36 @@ messageInput.addEventListener('input', () => {
         charHint.hidden = true;
     }
 });
+
+// ================================
+// PAGE VIEW TRACKING
+// ================================
+(function trackPageView() {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const rawSrc = params.get("src");
+        // Если src нет в URL, можем вообще не слать или слать спец. код
+        const src = rawSrc !== null ? Number(rawSrc) : 0; 
+
+        const key = `pv_last_${src}`;
+        const last = Number(localStorage.getItem(key)) || 0;
+        const now = Date.now();
+        const COOLDOWN_MS = 30 * 1000;
+
+        if (now - last < COOLDOWN_MS) return;
+
+        localStorage.setItem(key, now);
+
+        const url = `${API_BASE_URL}/metrics/page-view?src=${src}`;
+
+        
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(url);
+        } else {
+            fetch(url, { method: "POST", keepalive: true }).catch(() => {});
+        }
+
+    } catch (err) {
+        
+    }
+})();
