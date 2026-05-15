@@ -103,10 +103,17 @@ function updateCurrencySymbols() {
 
 currencySelect.addEventListener('change', updateCurrencySymbols);
 
-// re-run after lang switch (labels restored by i18n, amounts need currency update)
-document.addEventListener('langchange', () => updateCurrencySymbols());
+function updateDaBtn(lang) {
+    daBtn.style.display = lang === 'ua' ? 'none' : '';
+}
+
+document.addEventListener('langchange', (e) => {
+    updateCurrencySymbols();
+    updateDaBtn(e.detail.lang);
+});
 
 updateCurrencySymbols();
+updateDaBtn(localStorage.getItem('lang') || 'en');
 
 const messageInput = document.getElementById('message');
 const charHint = document.getElementById('charHint');

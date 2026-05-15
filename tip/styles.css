@@ -53,17 +53,17 @@ body {
 
 .lang-switcher {
     display: flex;
-    gap: 4px;
-    justify-content: flex-end;
+    gap: 6px;
     margin-bottom: 16px;
 }
 
 .lang-btn {
+    flex: 1;
     background: none;
     border: 1px solid var(--border-light);
-    border-radius: 6px;
-    padding: 3px 9px;
-    font-size: 0.7rem;
+    border-radius: 8px;
+    padding: 6px 0;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     color: var(--text-muted);
@@ -128,26 +128,28 @@ body {
     background: #ffffff;
     border: 1px solid var(--border-light);
     border-radius: 12px;
-    padding: 10px 8px;
+    padding: 0.5em 0.4em;
     font-weight: 600;
     cursor: pointer;
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
     box-shadow: 0 1px 0 rgba(15,23,42,0.03);
     font-family: inherit;
+    line-height: 1.3;
 }
 
     .preset-amount {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
         font-weight: 700;
         display: block;
+        line-height: 1.2;
     }
 
     .preset small {
         display: block;
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         font-weight: 400;
         color: var(--text-muted);
-        margin-top: 2px;
+        line-height: 1.2;
     }
 
     .preset:hover {
@@ -261,25 +263,23 @@ textarea {
     width: 100%;
     padding: 12px;
     border-radius: 14px;
-    border: 2px solid var(--brand-da);
+    border: none;
     font-size: 0.95rem;
     font-weight: 600;
-    background: white;
-    color: var(--brand-da);
+    background: var(--brand-da);
+    color: white;
     cursor: pointer;
     font-family: inherit;
     margin-top: 10px;
-    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    transition: background 0.15s ease;
 }
 
     #daBtn:hover:not(:disabled) {
-        background: var(--brand-da);
-        color: white;
+        background: #cc4f0b;
     }
 
     #daBtn:disabled {
-        border-color: #cbd5e1;
-        color: #cbd5e1;
+        background: #cbd5e1;
         cursor: not-allowed;
     }
 
