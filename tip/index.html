@@ -1,18 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Support Andrew</title>
+    <title data-i18n="page-title">Support Andrew</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO -->
     <meta name="description" content="Support Andrew with a small tip. Secure payment via Stripe." />
 
     <link rel="stylesheet" href="styles.css" />
@@ -22,13 +19,19 @@
     <main class="container">
         <div class="card">
 
+            <!-- LANG SWITCHER -->
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="ua">UA</button>
+            </div>
+
             <!-- HEADER -->
             <div class="header">
                 <div class="header-text">
-                    <h1>Support Andrew</h1>
-                    <p class="subtitle">
-                        Liked my content?
-                        <br>Support with a quick tip.</br>
+                    <h1 data-i18n="header-h1">Support Andrew</h1>
+                    <p class="subtitle" data-i18n-html="subtitle">
+                        Liked my content?<br>Support with a quick tip.
                     </p>
                 </div>
 
@@ -38,21 +41,25 @@
             <!-- PRESET BUTTONS -->
             <div class="preset-row">
                 <button class="preset" data-amount="3">
-                    £3<br><small>Thank you</small>
+                    <span class="preset-amount">£3</span><br>
+                    <small data-i18n="preset-3-label">Thank you</small>
                 </button>
 
                 <button class="preset" data-amount="5">
-                    £5<br><small>Cheers</small>
+                    <span class="preset-amount">£5</span><br>
+                    <small data-i18n="preset-5-label">Cheers</small>
                 </button>
 
                 <button class="preset" data-amount="10">
-                    £10<br><small>Made my day</small>
+                    <span class="preset-amount">£10</span><br>
+                    <small data-i18n="preset-10-label">Made my day</small>
                 </button>
             </div>
 
             <div class="preset-row">
                 <button class="preset wide" data-amount="51">
-                    £50+<br><small>You are the best</small>
+                    <span class="preset-amount">£50+</span><br>
+                    <small data-i18n="preset-50-label">You are the best</small>
                 </button>
             </div>
 
@@ -75,35 +82,42 @@
             <!-- FROM -->
             <input id="fromName"
                    type="text"
+                   data-i18n-placeholder="from-placeholder"
                    placeholder="From (optional)"
                    maxlength="30" />
 
             <p></p>
+
             <!-- MESSAGE -->
             <textarea id="message"
                       maxlength="250"
+                      data-i18n-placeholder="message-placeholder"
                       placeholder="Write a short message (optional)"></textarea>
 
             <div id="charHint" class="char-hint" hidden>
-                Maximum 250 characters reached
+                <span data-i18n="char-hint">Maximum 250 characters reached</span>
             </div>
-
 
             <!-- AGREE -->
             <div class="agree">
                 <input type="checkbox" id="agree" />
 
-                <label for="agree">
+                <label for="agree" data-i18n-html="agree-full">
                     I agree to the
                     <a href="policy/terms.html" target="_blank">Terms</a>,
-                    <a href="policy/privacy.html" target="_blank">Privacy</a> &
+                    <a href="policy/privacy.html" target="_blank">Privacy</a> &amp;
                     <a href="policy/refund.html" target="_blank">Refund Policy</a>.
                 </label>
             </div>
 
-            <!-- PAY BUTTON -->
-            <button id="tipBtn" disabled>
-                Send Tip Securely
+            <!-- STRIPE BUTTON -->
+            <button id="tipBtn" disabled data-i18n="stripe-btn">
+                Send Tip (via Stripe)
+            </button>
+
+            <!-- DONATION ALERTS BUTTON -->
+            <button id="daBtn" disabled data-i18n="da-btn">
+                Send with Donation Alerts
             </button>
 
             <!-- PAYMENT ICONS -->
@@ -115,13 +129,14 @@
             </div>
 
             <!-- SECURITY NOTE -->
-            <p class="secure-note">
+            <p class="secure-note" data-i18n="secure-note">
                 🔒 Secured payment powered by Stripe
             </p>
 
         </div>
     </main>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Payment Cancelled</title>
+    <title data-i18n="page-title">Support Andrew</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -19,20 +19,26 @@
 <main class="container">
     <div class="card">
 
-        <h1>Payment cancelled</h1>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="ua">UA</button>
+        </div>
 
-        <p class="subtitle">
-            No worries — nothing was charged.
-            <br />
+        <h1 data-i18n="cancel-title">Payment cancelled</h1>
+
+        <p class="subtitle" data-i18n-html="cancel-p1">
+            No worries — nothing was charged.<br />
             You can try again anytime.
         </p>
 
-        <a href="index.html" class="back-link">
+        <a href="index.html" class="back-link" data-i18n="back-try">
             ← Go back and try again
         </a>
 
     </div>
 </main>
 
+<script src="i18n.js"></script>
 </body>
 </html>

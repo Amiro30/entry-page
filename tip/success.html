@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <title>Thank You</title>
+    <title data-i18n="page-title">Support Andrew</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -19,26 +19,31 @@
 <main class="container">
     <div class="card">
 
-        <h1>Thank you! 🙌</h1>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="ua">UA</button>
+        </div>
 
-        <p class="subtitle">
-            Your donation is being processed.
-            <br />
+        <h1 data-i18n="success-title">Thank you! 🙌</h1>
+
+        <p class="subtitle" data-i18n-html="success-p1">
+            Your donation is being processed.<br />
             I really appreciate your support.
         </p>
 
-        <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">
-            You can safely close this page.
-            <br />
+        <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;" data-i18n-html="success-p2">
+            You can safely close this page.<br />
             Stay tuned for more content!
         </p>
 
-        <a href="index.html" class="back-link">
+        <a href="index.html" class="back-link" data-i18n="back-home">
             ← Back to homepage
         </a>
 
     </div>
 </main>
 
+<script src="i18n.js"></script>
 </body>
 </html>

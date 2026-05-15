@@ -1,17 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Terms of Service</title>
+    <title data-i18n="terms-title">Terms of Service</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <!-- responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- shared styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -19,82 +17,89 @@
     <main class="container">
         <div class="card policy">
 
-            <h1>Terms of Service</h1>
+            <div class="lang-switcher">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="ua">UA</button>
+            </div>
 
-            <p>Last updated: <strong>September 2025</strong></p>
+            <h1 data-i18n="terms-title">Terms of Service</h1>
 
-            <p>
+            <p data-i18n-html="last-updated">Last updated: <strong>September 2025</strong></p>
+
+            <p data-i18n="terms-p-intro">
                 By accessing this website and leaving an optional tip, you agree to these Terms of Service.
             </p>
 
-            <h2>Nature of Tips</h2>
+            <h2 data-i18n="terms-h-nature">Nature of Tips</h2>
 
-            <p>
+            <p data-i18n-html="terms-p-nature">
                 All payments made on this website are <strong>optional tips</strong> intended to support
-                the creator’s content.
+                the creator's content.
                 Tips are not payments for goods, services, subscriptions, or digital products.
                 No goods, services, or guaranteed benefits are provided in exchange for a tip.
             </p>
 
-            <h2>Refund Policy</h2>
+            <h2 data-i18n="terms-h-refund">Refund Policy</h2>
 
-            <p>
+            <p data-i18n-html="terms-p-refund1">
                 Tips are generally <strong>non-refundable</strong>.
             </p>
 
-            <p>
+            <p data-i18n="terms-p-refund2">
                 Once a tip is completed, it cannot be reversed or refunded,
                 except where required by applicable law.
             </p>
 
-            <h2>User Responsibility</h2>
+            <h2 data-i18n="terms-h-user">User Responsibility</h2>
 
-            <p>
+            <p data-i18n="terms-p-user">
                 You are solely responsible for entering the correct tip amount and currency
                 before confirming payment.
             </p>
 
-            <h2>Optional User Content</h2>
+            <h2 data-i18n="terms-h-content">Optional User Content</h2>
 
-            <p>
+            <p data-i18n="terms-p-content">
                 Any nickname or message submitted with a tip is optional and voluntary.
                 We reserve the right to remove or hide any content that is abusive, offensive,
                 misleading, or otherwise inappropriate.
             </p>
 
-            <h2>Third-Party Payment Processor</h2>
+            <h2 data-i18n="terms-h-3rdparty">Third-Party Payment Processor</h2>
 
-            <p>
+            <p data-i18n-html="terms-p-3rdparty">
                 Payments are processed securely by <strong>Stripe</strong>.
-                By leaving a tip, you also agree to Stripe’s terms, policies,
+                By leaving a tip, you also agree to Stripe's terms, policies,
                 and privacy practices.
             </p>
 
-            <h2>Limitation of Liability</h2>
+            <h2 data-i18n="terms-h-limit">Limitation of Liability</h2>
 
-            <p>
-                This website is provided on an <strong>“as is”</strong> and
-                <strong>“as available”</strong> basis.
+            <p data-i18n-html="terms-p-limit1">
+                This website is provided on an <strong>"as is"</strong> and
+                <strong>"as available"</strong> basis.
             </p>
 
-            <p>
+            <p data-i18n="terms-p-limit2">
                 We are not responsible for payment issues, interruptions, or errors
                 caused by Stripe, banks, card issuers, or other third parties involved
                 in the payment process.
             </p>
 
-            <h2>Changes to These Terms</h2>
+            <h2 data-i18n="terms-h-changes">Changes to These Terms</h2>
 
-            <p>
+            <p data-i18n="terms-p-changes">
                 We may update these Terms of Service at any time.
                 Continued use of this website after changes are published
                 constitutes acceptance of the updated terms.
             </p>
 
-            <a class="back-link" href="../index.html">← Back</a>
+            <a class="back-link" href="../index.html" data-i18n="back">← Back</a>
 
         </div>
     </main>
 
+    <script src="../i18n.js"></script>
 </body>
 </html>

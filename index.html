@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Andrew Auto Hub</title>
+    <title data-i18n="root-title">Andrew Auto Hub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -26,6 +26,7 @@
             padding: 32px;
             border-radius: 16px;
             max-width: 420px;
+            width: 100%;
             text-align: center;
             box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
         }
@@ -65,18 +66,57 @@
             text-decoration: none;
             font-weight: 600;
         }
+
+        .lang-switcher {
+            display: flex;
+            gap: 4px;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 3px 9px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.15s ease;
+            letter-spacing: 0.05em;
+            font-family: inherit;
+        }
+
+            .lang-btn:hover {
+                border-color: #3d73bd;
+                color: #3d73bd;
+            }
+
+            .lang-btn.active {
+                background: #3d73bd;
+                border-color: #3d73bd;
+                color: white;
+            }
     </style>
 </head>
 <body>
     <div class="box">
-        <h1>Andrew Auto Hub</h1>
 
-        <p>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="ua">UA</button>
+        </div>
+
+        <h1 data-i18n="root-h1">Andrew Auto Hub</h1>
+
+        <p data-i18n="root-p1">
             I create automotive content about cars, ownership,
             maintenance, and real-world driving experience.
         </p>
 
-        <p>
+        <p data-i18n="root-p2">
             My content is published on:
         </p>
 
@@ -86,13 +126,16 @@
             <li><a href="https://tiktok.com/@andrewautohub" target="_blank">TikTok</a></li>
         </ul>
 
-        <p>
+        <p data-i18n="root-p3">
             If you enjoy my content, you can leave an optional tip
             to support my work. Tips are optional and do not provide
             access to additional content or services.
         </p>
 
-        <a class="cta" href="/tip">Leave a tip</a>
+        <a class="cta" href="/tip" data-i18n="root-cta">Leave a tip</a>
+
     </div>
+
+    <script src="/tip/i18n.js"></script>
 </body>
 </html>

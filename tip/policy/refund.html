@@ -1,18 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Refund Policy</title>
+    <title data-i18n="refund-title">Refund Policy</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- shared styles -->
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -20,58 +17,65 @@
 <main class="container">
     <div class="card policy">
 
-        <h1>Refund Policy</h1>
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ru">RU</button>
+            <button class="lang-btn" data-lang="ua">UA</button>
+        </div>
 
-        <p>Last updated: <strong>September 2025</strong></p>
+        <h1 data-i18n="refund-title">Refund Policy</h1>
 
-        <p>
+        <p data-i18n-html="last-updated">Last updated: <strong>September 2025</strong></p>
+
+        <p data-i18n-html="refund-p-intro">
             This website accepts <strong>optional tips only</strong>.
             Tips are made as a gesture of support and are not payments
             for goods, services, subscriptions, or digital products.
         </p>
 
-        <h2>Refund Policy</h2>
+        <h2 data-i18n="refund-h-policy">Refund Policy</h2>
 
-        <p>
+        <p data-i18n-html="refund-p-general">
             Tips are generally <strong>non-refundable</strong>.
         </p>
 
-        <p>
+        <p data-i18n="refund-p-acknowledge">
             By completing a tip, you acknowledge and agree that:
         </p>
 
         <ul>
-            <li>The tip is optional</li>
-            <li>The tip amount is chosen by you</li>
-            <li>You are not purchasing a product or service</li>
-            <li>No goods, services, or benefits are provided in exchange</li>
+            <li data-i18n="refund-li-optional">The tip is optional</li>
+            <li data-i18n="refund-li-chosen">The tip amount is chosen by you</li>
+            <li data-i18n="refund-li-not-product">You are not purchasing a product or service</li>
+            <li data-i18n="refund-li-no-goods">No goods, services, or benefits are provided in exchange</li>
         </ul>
 
-        <p>
+        <p data-i18n-html="refund-p-not-issued">
             Refunds will <strong>not</strong> be issued for:
         </p>
 
         <ul>
-            <li>Accidental tips</li>
-            <li>Incorrect tip amounts</li>
-            <li>Change of mind</li>
+            <li data-i18n="refund-li-accidental">Accidental tips</li>
+            <li data-i18n="refund-li-incorrect">Incorrect tip amounts</li>
+            <li data-i18n="refund-li-mind">Change of mind</li>
         </ul>
 
-        <h2>Exceptions</h2>
+        <h2 data-i18n="refund-h-exceptions">Exceptions</h2>
 
-        <p>
+        <p data-i18n="refund-p-exceptions">
             Refunds may be provided only where required by applicable law,
             or in cases of confirmed fraud or technical error.
         </p>
 
-        <p>
+        <p data-i18n="refund-p-no-guarantee">
             Submitting a refund request does not guarantee that a refund will be issued.
         </p>
 
-        <a class="back-link" href="../index.html">← Back</a>
+        <a class="back-link" href="../index.html" data-i18n="back">← Back</a>
 
     </div>
 </main>
 
+<script src="../i18n.js"></script>
 </body>
 </html>

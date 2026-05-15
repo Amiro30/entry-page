@@ -1,35 +1,34 @@
-﻿const presets = document.querySelectorAll('.preset');
+const presets = document.querySelectorAll('.preset');
 const amountInput = document.getElementById('amount');
 const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('tipBtn');
+const daBtn = document.getElementById('daBtn');
 const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
-
+const DA_URL = "https://www.donationalerts.com/r/andrewautotv";
 
 // preset buttons logic
 presets.forEach(btn => {
     btn.addEventListener('click', () => {
         presets.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         amountInput.value = btn.dataset.amount;
     });
 });
 
 // ensure minimum amount = 1
 amountInput.addEventListener('input', () => {
-    if (amountInput.value < 1) {
-        amountInput.value = 1;
-    }
+    if (amountInput.value < 1) amountInput.value = 1;
 });
 
-// policy checkbox
+// policy checkbox enables both buttons
 checkbox.addEventListener('change', () => {
     donateButton.disabled = !checkbox.checked;
+    daBtn.disabled = !checkbox.checked;
 });
 
-// placeholder for backend
-donateButton.addEventListener('click', async () => {   
+// Stripe checkout
+donateButton.addEventListener('click', async () => {
     const currentParams = new URLSearchParams(window.location.search);
     const currentSource = Number(currentParams.get("src")) || 0;
 
@@ -38,7 +37,7 @@ donateButton.addEventListener('click', async () => {
         currency: currencySelect.value,
         fromName: document.getElementById('fromName').value || null,
         message: messageInput.value || null,
-        source: currentSource 
+        source: currentSource
     };
 
     console.log("Payload to send:", payload);
@@ -46,9 +45,7 @@ donateButton.addEventListener('click', async () => {
     try {
         const response = await fetch(`${API_BASE_URL}/api/checkout`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
         });
 
@@ -65,45 +62,57 @@ donateButton.addEventListener('click', async () => {
     }
 });
 
+// Donation Alerts button — track click then open DA in new tab
+daBtn.addEventListener('click', () => {
+    const currentParams = new URLSearchParams(window.location.search);
+    const src = Number(currentParams.get("src")) || 0;
+
+    try {
+        const url = `${API_BASE_URL}/api/metrics/da-click?src=${src}`;
+        if (navigator.sendBeacon) {
+            navigator.sendBeacon(url);
+        } else {
+            fetch(url, { method: "POST", keepalive: true }).catch(() => {});
+        }
+    } catch (_) {}
+
+    window.open(DA_URL, '_blank', 'noopener,noreferrer');
+});
+
 const currencySymbols = {
     GBP: '£',
     EUR: '€',
     USD: '$'
 };
 
-
 function updateCurrencySymbols() {
     const currency = currencySelect.value;
     const symbol = currencySymbols[currency];
 
     presets.forEach(btn => {
-        const amount = btn.dataset.amount;
+        const amountEl = btn.querySelector('.preset-amount');
+        if (!amountEl) return;
 
-        // wide button (£50+)
         if (btn.classList.contains('wide')) {
-            btn.innerHTML = `${symbol}50+<br><small>You are the best</small>`;
+            amountEl.textContent = `${symbol}50+`;
         } else {
-            const label = btn.querySelector('small').innerText;
-            btn.innerHTML = `${symbol}${amount}<br><small>${label}</small>`;
+            amountEl.textContent = `${symbol}${btn.dataset.amount}`;
         }
     });
 }
 
-
 currencySelect.addEventListener('change', updateCurrencySymbols);
 
-// call one time  during load
+// re-run after lang switch (labels restored by i18n, amounts need currency update)
+document.addEventListener('langchange', () => updateCurrencySymbols());
+
 updateCurrencySymbols();
 
 const messageInput = document.getElementById('message');
 const charHint = document.getElementById('charHint');
 
 messageInput.addEventListener('input', () => {
-    if (messageInput.value.length >= 250) {
-        charHint.hidden = false;
-    } else {
-        charHint.hidden = true;
-    }
+    charHint.hidden = messageInput.value.length < 250;
 });
 
 // ================================
@@ -113,8 +122,7 @@ messageInput.addEventListener('input', () => {
     try {
         const params = new URLSearchParams(window.location.search);
         const rawSrc = params.get("src");
-        // Если src нет в URL, можем вообще не слать или слать спец. код
-        const src = rawSrc !== null ? Number(rawSrc) : 0; 
+        const src = rawSrc !== null ? Number(rawSrc) : 0;
 
         const key = `pv_last_${src}`;
         const last = Number(localStorage.getItem(key)) || 0;
@@ -127,14 +135,10 @@ messageInput.addEventListener('input', () => {
 
         const url = `${API_BASE_URL}/api/metrics/page-view?src=${src}`;
 
-        
         if (navigator.sendBeacon) {
             navigator.sendBeacon(url);
         } else {
             fetch(url, { method: "POST", keepalive: true }).catch(() => {});
         }
-
-    } catch (err) {
-        
-    }
+    } catch (_) {}
 })();

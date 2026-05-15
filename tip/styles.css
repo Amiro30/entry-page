@@ -1,4 +1,4 @@
-﻿/* ===============================
+/* ===============================
    DESIGN TOKENS
 ================================ */
 
@@ -10,6 +10,8 @@
     --text-placeholder: #94a3b8;
     --brand-blue: #3d73bd;
     --brand-blue-soft: #e8f0fe;
+    --brand-da: #e8580c;
+    --brand-da-soft: #fff3ee;
     --border-light: #e2e8f0;
 }
 
@@ -46,6 +48,42 @@ body {
 }
 
 /* ===============================
+   LANGUAGE SWITCHER
+================================ */
+
+.lang-switcher {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 3px 9px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+    letter-spacing: 0.05em;
+    font-family: inherit;
+}
+
+    .lang-btn:hover {
+        border-color: var(--brand-blue);
+        color: var(--brand-blue);
+    }
+
+    .lang-btn.active {
+        background: var(--brand-blue);
+        border-color: var(--brand-blue);
+        color: white;
+    }
+
+/* ===============================
    HEADER
 ================================ */
 
@@ -59,7 +97,6 @@ body {
     .header h1 {
         margin: 0 0 6px 0;
         font-size: 1.75rem;
-        /*white-space: nowrap;*/ /* uncomment if not next row needed */
     }
 
 .subtitle {
@@ -69,7 +106,6 @@ body {
     max-width: 260px;
 }
 
-/* mine logo/picture */
 .header img {
     width: 100px;
     height: 100px;
@@ -97,13 +133,21 @@ body {
     cursor: pointer;
     transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
     box-shadow: 0 1px 0 rgba(15,23,42,0.03);
+    font-family: inherit;
 }
+
+    .preset-amount {
+        font-size: 1.15rem;
+        font-weight: 700;
+        display: block;
+    }
 
     .preset small {
         display: block;
-        font-size: 0.7rem;
+        font-size: 0.78rem;
         font-weight: 400;
         color: var(--text-muted);
+        margin-top: 2px;
     }
 
     .preset:hover {
@@ -141,6 +185,11 @@ textarea {
     font-family: inherit;
 }
 
+#amount {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
 textarea {
     min-height: 80px;
     line-height: 1.4;
@@ -160,7 +209,7 @@ textarea {
     font-size: 0.75rem;
     color: #475569;
     display: flex;
-    align-items: center; /* ключевая строка */
+    align-items: center;
     gap: 10px;
 }
 
@@ -182,7 +231,7 @@ textarea {
     }
 
 /* ===============================
-   MAIN BUTTON
+   MAIN BUTTONS
 ================================ */
 
 #tipBtn {
@@ -195,10 +244,42 @@ textarea {
     background: var(--brand-blue);
     color: white;
     cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease;
 }
+
+    #tipBtn:hover:not(:disabled) {
+        background: #3264a8;
+    }
 
     #tipBtn:disabled {
         background: #cbd5e1;
+        cursor: not-allowed;
+    }
+
+#daBtn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: 2px solid var(--brand-da);
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: white;
+    color: var(--brand-da);
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 10px;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+    #daBtn:hover:not(:disabled) {
+        background: var(--brand-da);
+        color: white;
+    }
+
+    #daBtn:disabled {
+        border-color: #cbd5e1;
+        color: #cbd5e1;
         cursor: not-allowed;
     }
 
@@ -213,9 +294,9 @@ textarea {
     gap: 14px;
     margin-top: 14px;
 }
-/* icon like apple pay etc. */
+
     .payments img {
-        height: 35px; /* было 18px */
+        height: 35px;
         opacity: 0.85;
     }
 
@@ -259,6 +340,12 @@ textarea {
     line-height: 1.6;
     color: #334155;
     margin-bottom: 10px;
+}
+
+.policy ul {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #334155;
 }
 
 .back-link {
