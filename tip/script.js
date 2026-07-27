@@ -104,7 +104,7 @@ function updateCurrencySymbols() {
 currencySelect.addEventListener('change', updateCurrencySymbols);
 
 function updateDaBtn(lang) {
-    daBtn.style.display = lang === 'en' ? 'none' : '';
+    daBtn.style.display = lang === 'ru' ? '' : 'none';
 }
 
 document.addEventListener('langchange', (e) => {
