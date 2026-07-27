@@ -4,7 +4,7 @@ const currencySelect = document.getElementById('currency');
 const checkbox = document.getElementById('agree');
 const donateButton = document.getElementById('tipBtn');
 const daBtn = document.getElementById('daBtn');
-const API_BASE_URL = "https://hubproject-production-a4ff.up.railway.app";
+const API_BASE_URL = "https://YOUR_DOMAIN_HERE";
 const DA_URL = "https://www.donationalerts.com/r/andrewautotv";
 
 // preset buttons logic
